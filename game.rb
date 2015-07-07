@@ -40,4 +40,26 @@ class Game
   def live_cells
     @cells.select{|cell| cell.alive}
   end
+
+  def live_neighbors(cell)
+    cell.neighbors.map {|n| live_cells.select {|c| c.x == n.x && c.y == n.y }}.flatten
+  end
+
+  def live_neighbors_count(cell)
+    live_neighbors(cell).count
+  end
+
+  def next_cell(cell)
+    if cell.alive && (2..3).include?(live_neighbors_count(cell)) || 3 == live_neighbors_count(cell)
+      Cell.new(cell.x, cell.y, alive = true)
+    else
+      Cell.new(cell.x, cell.y, alive = false)
+    end
+  end
+
+  def next_generation
+    next_cells = []
+    @cells.map{|cell| next_cells.push(next_cell(cell))}
+    @cells = next_cells
+  end
 end

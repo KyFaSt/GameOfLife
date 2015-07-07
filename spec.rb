@@ -22,5 +22,11 @@ describe Game do
       expect(game.cells).to eq(seed)
       expect(game.live_cells.count).to eq(3)
     end
+
+    it "should evolve the board to the next generation" do
+      game = Game.new(seed, 1)
+      game.next_generation
+      expect(game.live_cells.count).to eq(3)
+    end
   end
 end

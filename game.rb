@@ -25,6 +25,14 @@ class Cell
      Cell.new(x+1, y-1, false), Cell.new(self.x+1, self.y, false), Cell.new(self.x+1, self.y+1, false)
    ]
   end
+
+  def to_s
+    if alive
+      'x'
+    else
+      ' '
+    end
+  end
 end
 
 class Game
@@ -35,6 +43,13 @@ class Game
 
   def cells
     @cells
+  end
+
+  def play
+    (1..@generations).each do
+      next_generation
+      puts self
+    end
   end
 
   def live_cells
@@ -62,4 +77,28 @@ class Game
     @cells.map{|cell| next_cells.push(next_cell(cell))}
     @cells = next_cells
   end
+
+  def play
+    (1..@generations).each do
+      next_generation
+      print_board
+    end
+  end
+
+  def print_board
+    row_location.each do |row_location|
+      row = @cells.select{|cell| cell.x == row_location}
+      puts row.join
+    end
+  end
+
+  def row_location
+    @cells.map{|cell| cell.x}.uniq
+  end
 end
+
+
+blinker = [Cell.new(-1, 1, false), Cell.new(0, 1, false), Cell.new(1, 1, false),
+           Cell.new(-1, 0, true), Cell.new(0, 0, true), Cell.new(1, 0, true), Cell.new(-1, -1, false), Cell.new(0, -1, false), Cell.new(1, -1, false)]
+
+Game.new(blinker, 30).play

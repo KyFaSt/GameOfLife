@@ -1,4 +1,5 @@
 require 'pry'
+require 'gemoji'
 
 class Cell
   def initialize(x, y, alive)
@@ -28,9 +29,13 @@ class Cell
 
   def to_s
     if alive
-      'x'
+      monkey
     else
       ' '
     end
+  end
+
+  def monkey
+    Emoji.find_by_alias("monkey").raw
   end
 end

@@ -27,3 +27,17 @@ class Cell
   end
 end
 
+class Game
+  def initialize(seed, generations)
+    @generations = generations
+    @cells = seed
+  end
+
+  def cells
+    @cells
+  end
+
+  def live_cells
+    @cells.select{|cell| cell.alive}
+  end
+end

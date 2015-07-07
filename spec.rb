@@ -14,3 +14,13 @@ describe Cell do
   end
 end
 
+describe Game do
+  context "with a valid seed and number of generations provided" do
+    let(:seed) { [Cell.new(-1, 1, false), Cell.new(0, 1, false), Cell.new(1, 1, false), Cell.new(-1, 0, true), Cell.new(0, 0, true), Cell.new(1, 0, true), Cell.new(-1, -1, false), Cell.new(0, -1, false), Cell.new(1, -1, false)]}
+    it "should initialize a game" do
+      game = Game.new(seed, 3)
+      expect(game.cells).to eq(seed)
+      expect(game.live_cells.count).to eq(3)
+    end
+  end
+end

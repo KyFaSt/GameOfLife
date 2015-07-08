@@ -68,6 +68,7 @@ end
 
 
 blinker = [Cell.new(-1, 1, false), Cell.new(0, 1, false), Cell.new(1, 1, false),
-           Cell.new(-1, 0, true), Cell.new(0, 0, true), Cell.new(1, 0, true), Cell.new(-1, -1, false), Cell.new(0, -1, false), Cell.new(1, -1, false)]
+           Cell.new(-1, 0, true), Cell.new(0, 0, true), Cell.new(1, 0, true),
+           Cell.new(-1, -1, false), Cell.new(0, -1, false), Cell.new(1, -1, false)]
 
 Game.new(blinker, 30).play

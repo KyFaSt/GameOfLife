@@ -22,7 +22,11 @@ class Game
   end
 
   def live_neighbors(cell)
-    cell.neighbors.map {|n| live_cells.select {|c| c.x == n.x && c.y == n.y }}.flatten
+    cell.neighbors.map {
+      |neighbor| live_cells.select {
+        |live_cell| live_cell.x == neighbor.x && live_cell.y == neighbor.y
+      }
+    }.flatten
   end
 
   def live_neighbors_count(cell)

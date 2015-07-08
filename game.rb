@@ -71,4 +71,11 @@ blinker = [Cell.new(-1, 1, false), Cell.new(0, 1, false), Cell.new(1, 1, false),
            Cell.new(-1, 0, true), Cell.new(0, 0, true), Cell.new(1, 0, true),
            Cell.new(-1, -1, false), Cell.new(0, -1, false), Cell.new(1, -1, false)]
 
-Game.new(blinker, 30).play
+toad = [Cell.new(-1, 1, false), Cell.new(0, 1, false), Cell.new(1, 1, false), Cell.new(2, 1, false), Cell.new(3, 1, false),
+        Cell.new(-1, 0, false), Cell.new(0, 0, true), Cell.new(1, 0, true), Cell.new(2, 0, true),Cell.new(3, 1, false),
+        Cell.new(-1, -1, true), Cell.new(0, -1, true), Cell.new(1, -1, true), Cell.new(2, -1, false), Cell.new(3, -1, false),
+        Cell.new(-1, -2, false), Cell.new(0, -2, false), Cell.new(1, -2, false), Cell.new(2, -2, false), Cell.new(3, -2, false),
+        Cell.new(-1, -3, false), Cell.new(0, -3, false), Cell.new(1, -3, false), Cell.new(2, -3, false), Cell.new(3, -3, false)
+       ]
+
+Game.new(toad, 300).play

@@ -26,7 +26,18 @@ describe Game do
     it "will evolve a two phase seed to the next generation" do
       game = Game.new(seed, 1)
       game.next_generation
-      expect(game.live_cells.count).to eq(3)
+      second_generation = game.live_cells
+
+      expect(second_generation.count).to eq(3)
+
+      expect(second_generation[0].x).to eq(0)
+      expect(second_generation[0].y).to eq(1)
+
+      expect(second_generation[1].x).to eq(0)
+      expect(second_generation[1].y).to eq(0)
+
+      expect(second_generation[2].x).to eq(0)
+      expect(second_generation[2].y).to eq(-1)
     end
   end
 end
